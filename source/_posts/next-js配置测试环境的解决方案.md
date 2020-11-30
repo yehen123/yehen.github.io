@@ -9,7 +9,7 @@ date: 2020-11-30 16:06:00
 
 ## 开发环境
 
-# server/server.js
+### server/server.js
 ```js
 const express = require('express')
 const next = require('next')
@@ -53,7 +53,7 @@ app.prepare().then(() => {
     console.log('Error:::::', err)
 })
 ```
-# package.json
+### package.json
 ```
 "scripts": {
   "dev": "cross-env NODE_ENV=development node server/server.js",
@@ -61,7 +61,7 @@ app.prepare().then(() => {
 },
 ```
 
-```process.env.NODE_ENV```为```development```时为请求url添加**/api**前缀即可
+`process.env.NODE_ENV`为`development`时为请求url添加**/api**前缀即可
 
 ## 测试环境
 
@@ -69,7 +69,7 @@ app.prepare().then(() => {
 
 生产环境和测试环境部署在不同的域名下，解决方案可以通过当前域名来作为区分，而node环境是没有window对象和域名的，因此只要解决代码在node环境下运行时的问题即可解决。
 
-# swr全局配置
+### swr全局配置
 
 _app.js
 
@@ -85,7 +85,7 @@ import fetcher from 'utils/fetcher'
 </SWRConfig>
 ```
 
-# 封装fetcher
+### 封装fetcher
 
 >swr会在每次请求时调用fetcher，因此通过闭包将当前环境下的host持久化储存即可
 
