@@ -3,7 +3,7 @@ tags: [next.js]
 categories: []
 date: 2020-11-30 16:06:00
 ---
-一般来说，next框架在不同环境中使用**.env.local**中的不同配置即可区分，但是运维同学表示并不想多写这一行代码，只能自己动手啦。
+一般来说，next框架在不同环境中使用**\.env.local**中的不同配置即可区分，但是运维同学表示并不想多写这一行代码，只能自己动手啦。
 
 >  项目中的代码需要在3个环境中运行：开发环境、测试环境、生产环境，而next中通过`process.env.NODE_ENV`的方式只支持development和production两种方式，那么如何解决测试环境的问题呢？
 
@@ -61,11 +61,11 @@ app.prepare().then(() => {
 },
 ```
 
-`process.env.NODE_ENV`为`development`时为请求url添加**/api**前缀即可
+`process.env.NODE_ENV`为`development`时为请求url添加**\/api**前缀即可
 
 ## 测试环境
 
-测试环境与生产环境同使用`next start`进行构建，`cross-env NODE_ENV=staging next start,`是无效的，next.js在执行start时会将其覆盖，因为区分测试环境和生产环境则是个棘手的问题。
+测试环境与生产环境同使用`next start`进行构建，`cross-env NODE_ENV=staging next start`是无效的，next.js在执行start时会将其覆盖，因为区分测试环境和生产环境则是个棘手的问题。
 
 生产环境和测试环境部署在不同的域名下，解决方案可以通过当前域名来作为区分，而node环境是没有window对象和域名的，因此只要解决代码在node环境下运行时的问题即可解决。
 
